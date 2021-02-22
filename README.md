@@ -17,3 +17,18 @@ docker-compose run web python manage.py createsuperuser
 ```
 
 komutuyla oluşturabilirsiniz.
+
+
+## KULLANILAN TEKNOLOJİLER
+**Dil:** Python
+**Framework:** Django
+**Veri Tabanı:** PostgreSQL
+**Search:** Elasticsearch
+**Front-End:** Bootstrap
+**Diğer:** Docker, Crispy Forms, ORM, ITBook Store API.
+
+
+## EKRAN GÖRÜNTÜLERİ
+
+#### Ana Sayfa 
+https://user-images.githubusercontent.com/52426752/108761270-b1c8c580-755f-11eb-87c5-a665d73d86d3.PNG
