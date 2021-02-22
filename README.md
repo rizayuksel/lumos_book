@@ -16,7 +16,7 @@ komutlarını çalıştırın. Gerekli indirmeler tamamlandıktan sonra browser'
 docker-compose run web python manage.py createsuperuser
 ```
 
-komutuyla oluşturabilirsiniz.
+komutunu kullanarak oluşturabilirsiniz.
 
 
 ## KULLANILAN TEKNOLOJİLER
