@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <a href="{% url 'index'%}">
+            <div style="text-align: left; margin: 15px;"><img src="https://user-images.githubusercontent.com/52426752/108598235-8c8c5980-739d-11eb-907b-ddbef31c99ca.png" alt="Logo"></div>
+        </a>
+    </div>
+      <div class="col-sm">  
+        <form class="form-inline" method="GET" action="{% url 'search:search'%}">
+          <div class="form-group">
+
+          <div style="margin: 20px;" class="input-group mb-3">
+            {%csrf_token%}
+            <input type="text" class="form-control" placeholder="Search" aria-label="Search" name="keyword">
+            <button class="btn btn-outline-warning" type="submit">Search</button>
+          </div> 
+          </div>
+        </form>
+      </div>
+      <div class="col-sm">
+        <div style="text-align: right; margin: 20px;">
+        {% if request.user.is_authenticated %}
+                  <a class="btn btn-outline-info" href="{% url 'user:profile'%}">{{request.user.username}}</a>
+
+                  <a class="btn btn-outline-info" href="{% url 'user:logout'%}">Logout</a>
+              {% else %}
+                  <a class="btn btn-outline-info" href="{% url 'user:login' %}">Login</a>
+
+                  <a class="btn btn-outline-info" href="{% url 'user:register' %}">Sign Up</a>
+
+              {% endif %}
+      </div>
+    </div>
+    </div>
+</div>

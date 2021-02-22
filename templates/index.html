@@ -1,0 +1,66 @@
+{%extends "base.html"%}
+
+{%block title%}
+Lumos Book
+{%endblock title%}
+
+
+
+
+
+{%block body%}
+
+<hr style="border-top:3px solid aqua;">
+<h3 style="text-align: center;" class="text-info">Lumos Home Page</h3>
+<hr style="border-top:3px solid aqua;">
+
+{%if books %}
+<div class="row">
+    {%for book in books %}
+
+    <div class="col-4">
+        <div class="card-group">
+            <div class="card bg-info mb-3" style="width: 18rem;">
+                <a href="{% url 'book:detail' book.isbn13 %}"> <img class="card-img-top" src="{{book.image}}" alt="Card image cap">  </a> 
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">{{book.title}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-info">Price: {{book.price}}</li>
+                    <li class="list-group-item bg-info">ISBN13: {{book.isbn13}}</li>
+                </ul>
+                <div class="card-body post">
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'book:detail' book.isbn13 %}" class="btn btn-secondary text-white">Detail</a>
+
+                    {% if book.result %}
+                    <a href="{% url 'bookmark' book.isbn13 request.user.id %}"
+                        class="btn btn-danger add-bookmark">Remove Your Bookmark List</a>
+
+                    {% else %}
+                    <a href="{% url 'bookmark' book.isbn13 request.user.id %}" class="btn btn-warning add-bookmark">Add
+                        Your Bookmark List</a>
+                    {% endif %}
+
+                    {% else %}
+
+                    <a href="{% url 'book:detail' book.isbn13 %}" class="btn btn-secondary text-white">Detail</a>
+                    <a href="{% url 'user:login' %}" class="btn btn-warning text-white">Login For Bookmark</a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    {% if forloop.counter|divisibleby:3 %}
+</div>
+<div class="row">
+    {%endif%}
+
+    {%endfor%}
+    {%else%}
+    <div class="alert alert-danger">Not Found</div>
+    {%endif%}
+
+    {%endblock body%}

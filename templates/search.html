@@ -1,0 +1,53 @@
+{%extends "base.html"%}
+
+{%block title%}
+Result - Lumos Book
+{%endblock title%}
+
+
+
+
+
+{%block body%}
+{% load crispy_forms_tags %}
+<hr style="border-top:3px solid aqua;">
+<h3 style="text-align: center;" class="text-info">Results</h3>
+<hr style="border-top:3px solid aqua;">
+
+{%if books %}
+<div class="row">
+    {%for book in books %}
+
+    <div class="col-4">
+        <div class="card-group">
+            <div class="card bg-info mb-3" style="width: 18rem;">
+                <a href="{% url 'book:detail' book.isbn13 %}"> <img class="card-img-top" src="{{book.image}}"
+                        alt="Card image cap"> </a>
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">{{book.title}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-info">Author: {{book.author}}</li>
+                    <li class="list-group-item bg-info">ISBN13: {{book.isbn13}}</li>
+                </ul>
+                <div class="card-body post" style="text-align: center;">
+                    <a href="{% url 'book:detail' book.isbn13 %}" class="btn btn-secondary text-white">Detail</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    {% if forloop.counter|divisibleby:3 %}
+</div>
+<div class="row">
+    {%endif%}
+
+    {%endfor%}
+    {%else%}
+    <div class="alert alert-danger">Not Found</div>
+    {%endif%}
+
+
+    {%endblock body%}
