@@ -56,3 +56,6 @@ Gerekli bilgileri girerek siteye kayıt olabilirsiniz.
 Hesabınızla siteye giriş yapabilirsiniz.
 ![giriş yap](https://user-images.githubusercontent.com/52426752/108762030-a3c77480-7560-11eb-8fc0-67425d9ef88c.PNG)
 
+
+## SON OLARAK
+- **LUMOS:** Harry Potter'da asanın ucunda ışık belirmesini sağlayan büyü :)
